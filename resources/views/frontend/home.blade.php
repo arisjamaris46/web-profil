@@ -104,7 +104,7 @@
                   <div class="text">
                     <h6>Dengan Formula Terbaik</h6>
                     <p>
-                      Kami Menjamin Keaslian dan Kualitas kami 100% Herbal tanpa campuran
+                      Kami Menjamin Keaslian dan Kualitas kami 100% Herbal
                     </p>
                     <a href="#">Learn more</a>
                   </div>
@@ -118,7 +118,7 @@
                   <div class="text">
                     <h6>Sit and enjoy</h6>
                     <p>
-                      
+                      clea
                     </p>
                     <a href="#">Learn more</a>
                   </div>
