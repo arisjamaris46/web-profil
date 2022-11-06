@@ -58,13 +58,13 @@
                       </li>
                       <li class="dropdown">
                           <a href="#clients">Clients</a>
-                        </li>
+                      </li>
                       <li class="dropdown">
-                        <a href="#">Blog</a>
+                        <a href="#contacts">Contact </a>
                       </li>
-                      <li>
-                        <a href="#">Contact </a>
-                      </li>
+                        <li class="dropdown">
+                          <a href="#">Blog</a>
+                        </li>
                     </ul>
                   </nav>
                 </div>
