@@ -1,7 +1,7 @@
 @extends('frontend.layout')
 
 @section('content')
-<section id="featured">
+<section id="about-us">
       <!-- start slider -->
       <!-- Slider -->
       <div id="nivo-slider">
@@ -22,9 +22,9 @@
                   <h2>Awesome <strong>features</strong></h2>
                   <p>
                     Kami menyediakan berbagai macam Produk Herbal Berkualitas dan terjangkau
-              
+
                   </p>
-                  
+
                 </div>
               </div>
               <!-- Slide #2 caption -->
@@ -34,11 +34,11 @@
                   <p>
                     Kami Menyedia Berbagai Solusi untuk masalah anda
                   </p>
-                
+
                 </div>
               </div>
               <!-- Slide #3 caption -->
-              
+
                 </div>
               </div>
             </div>
@@ -47,86 +47,9 @@
       </div>
       <!-- end slider -->
 </section>
-<section class="callaction">
+
+<section id="products">
       <div class="container">
-        <div class="row">
-          <div class="span12">
-            <div class="big-cta">
-              <div class="cta-text">
-                <h3>Kami Meyediakan Produk Terbaik <span class="highlight"><strong> Berkualitas </strong></span> this year!</h3>
-              </div>
-              <div class="cta floatright">
-                <a class="btn btn-large btn-theme btn-rounded" href="#">Request a quote</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-</section>
-<section id="content">
-      <div class="container">
-        <div class="row">
-          <div class="span12">
-            <div class="row">
-              <div class="span3">
-                <div class="box aligncenter">
-                  <div class="aligncenter icon">
-                    <i class="icon-briefcase icon-circled icon-64 active"></i>
-                  </div>
-                  <div class="text">
-                    <h6>Reseller</h6>
-                    <p>
-                      Cukup Membeli 3 Produk sudah bisa Menjadi Resseler
-                    </p>
-                    
-                  </div>
-                </div>
-              </div>
-              <div class="span3">
-                <div class="box aligncenter">
-                  <div class="aligncenter icon">
-                    <i class="icon-desktop icon-circled icon-64 active"></i>
-                  </div>
-                  <div class="text">
-                    <h6>Pelayanan Cepat</h6>
-                    <p>
-                      Pesan Bayar kirim 
-                    </p>
-                  
-                  </div>
-                </div>
-              </div>
-              <div class="span3">
-                <div class="box aligncenter">
-                  <div class="aligncenter icon">
-                    <i class="icon-beaker icon-circled icon-64 active"></i>
-                  </div>
-                  <div class="text">
-                    <h6>Dengan Formula Terbaik</h6>
-                    <p>
-                      Kami Menjamin Keaslian dan Kualitas kami 100% Herbal
-                    </p>
-                    <a href="#">Learn more</a>
-                  </div>
-                </div>
-              </div>
-              <div class="span3">
-                <div class="box aligncenter">
-                  <div class="aligncenter icon">
-                    <i class="icon-coffee icon-circled icon-64 active"></i>
-                  </div>
-                  <div class="text">
-                    <h6>Sit and enjoy</h6>
-                    <p>
-                      clea
-                    </p>
-                    <a href="#">Learn more</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
         <!-- divider -->
         <div class="row">
           <div class="span12">
@@ -138,7 +61,7 @@
         <!-- Portfolio Projects -->
         <div class="row">
           <div class="span12">
-            <h4 class="heading">Some of recent <strong>works</strong></h4>
+            <h4 class="heading"> <strong>Our Product</strong></h4>
             <div class="row">
               <section id="projects">
                 <ul id="thumbs" class="portfolio">
@@ -244,9 +167,9 @@
           </div>
         </div>
         <!-- end divider -->
-        <div class="row">
+        <div class="row" id="clients">
           <div class="span12">
-            <h4>Very satisfied <strong>clients</strong></h4>
+            <h4><strong>Our Client</strong></h4>
             <ul id="mycarousel" class="jcarousel-skin-tango recent-jcarousel clients">
               <li>
                 <a href="#">
@@ -313,71 +236,5 @@
         </div>
       </div>
 </section>
-<section id="bottom">
-      <div class="container">
-        <div class="row">
-          <div class="span12">
-            <div class="aligncenter">
-              <div id="twitter-wrapper">
-                <div id="twitter">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="span3">
-            <div class="widget">
-              <h5 class="widgetheading">Browse pages</h5>
-              <ul class="link-list">
-                <li><a href="#">About our company</a></li>
-                <li><a href="#">Our services</a></li>
-                <li><a href="#">Meet our team</a></li>
-                <li><a href="#">Explore our portfolio</a></li>
-                <li><a href="#">Get in touch with us</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="span3">
-            <div class="widget">
-              <h5 class="widgetheading">Important stuff</h5>
-              <ul class="link-list">
-                <li><a href="#">Press release</a></li>
-                <li><a href="#">Terms and conditions</a></li>
-                <li><a href="#">Privacy policy</a></li>
-                <li><a href="#">Career center</a></li>
-                <li><a href="#">Flattern forum</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="span3">
-            <div class="widget">
-              <h5 class="widgetheading">Flickr photostream</h5>
-              <div class="flickr_badge">
-                <script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=8&amp;display=random&amp;size=s&amp;layout=x&amp;source=user&amp;user=34178660@N03"></script>
-              </div>
-              <div class="clear">
-              </div>
-            </div>
-          </div>
-          <div class="span3">
-            <div class="widget">
-              <h5 class="widgetheading">Get in touch with us</h5>
-              <address>
-								<strong>Flattern studio, Pte Ltd</strong><br>
-								 Springville center X264, Park Ave S.01<br>
-								 Semarang 16425 Indonesia
-					 		</address>
-              <p>
-                <i class="icon-phone"></i> (123) 456-7890 - (123) 555-7891 <br>
-                <i class="icon-envelope-alt"></i> email@domainname.com
-              </p>
-            </div>
-          </div>
-        </div>
-</div>
+
 @endsection
