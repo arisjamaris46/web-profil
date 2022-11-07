@@ -19,5 +19,12 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/datatables.min.css') }}"/>
+
+    {{-- plugin Datatable --}}
+    <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/pdfmake.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/vfs_fonts.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/datatables.min.js')}}"></script>
 
 </head>
