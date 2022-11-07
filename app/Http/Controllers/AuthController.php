@@ -10,11 +10,18 @@ use Illuminate\Support\Facades\Hash;
 class AuthController extends Controller
 {
     public function index(){
-        return view('backend.pages.login');
+        $data = [
+            'title'=>'Login'
+        ];
+        return view('backend.pages.login',$data);
     }
 
     public function register(){
-        return view('backend.pages.register');
+
+        $data = [
+            'title'=>'Register'
+        ];
+        return view('backend.pages.register',$data);
     }
 
     public function store(Request $request){

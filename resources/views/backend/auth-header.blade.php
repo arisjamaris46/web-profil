@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="admin panel">
 
-    <title>Login Admin</title>
+    <title>Rava Store - {{ $title }}</title>
 
     <link rel="shortcut icon" href="{{ asset('img/undraw_rocket.svg')}}" type="image/x-icon">
     <!-- Custom fonts for this template-->
