@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AuthController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +18,11 @@ use App\Http\Controllers\AdminController;
 
 Route::get('/',[HomeController::class,'index']);
 Route::get('/gallery',[GalleryController::class,'index']);
-Route::get('/admin',[AdminController::class,'index']);
+Route::get('admin',[AdminController::class,'index'])->name('admin')->middleware('auth');
+Route::get('login',[AuthController::class,'index'])->name('login')->middleware('guest');
+Route::post('login',[AuthController::class,'login'])->name('login');
+Route::get('register',[AuthController::class,'register'])->name('register');
+Route::post('register',[AuthController::class,'store'])->name('register');
+Route::get('logout',[AuthController::class,'logout'])->name('logout');
 
 
