@@ -27,8 +27,8 @@
             <div class="span12">
               <div class="headnav">
                 <ul>
-                  <li><a href="#mySignup" data-toggle="modal"><i class="icon-user"></i> Sign up</a></li>
-                  <li><a href="#mySignin" data-toggle="modal">Sign in</a></li>
+                  {{-- <li><a href="#mySignup" data-toggle="modal"><i class="icon-user"></i> Sign up</a></li> --}}
+                  <li><a href="{{route('login')}}" data-toggle="modal">Sign in</a></li>
                 </ul>
               </div>
 
