@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Products;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rules\File;
 
-class HomeController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,12 +15,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //loade template
         $data = [
-            'title' => 'Home',
-            'products' => Products::all()
+            'title'=>'Product',
+            'products'=>Products::all()
         ];
-        return view('frontend.home',$data);
+
+        return view('backend.pages.product.list',$data);
     }
 
     /**
@@ -29,7 +30,11 @@ class HomeController extends Controller
      */
     public function create()
     {
-        //
+        $data = [
+            'title'=>'Tambah Produk',
+        ];
+
+        return view('backend.pages.product.add',$data);
     }
 
     /**
@@ -40,7 +45,25 @@ class HomeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'product_name'=>['required'],
+            'product_desc'=>['required'],
+            'product_price'=>['required','numeric'],
+            'product_file'=>['max:6144','image','file']
+        ]);
+        $path =$request->file('product_file')->store('products');
+        if($request->file('product_file')){
+            $validated['product_file'] =$path;
+        }
+
+        $product = new Products;
+        $product->nm_produk = $validated['product_name'];
+        $product->ket_produk = $validated['product_desc'];
+        $product->hrg_produk = $validated['product_price'];
+        $product->gbr_produk = $validated['product_file'];
+        $product->save();
+
+        return back()->with('success','Data produk berhasil ditambahkan');
     }
 
     /**

@@ -34,23 +34,23 @@
 
            <!-- Nav Item - product -->
            <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{ route('product') }}">
                 <i class="fas fa-fw fa-list"></i>
-                <span>Products</span></a>
+                <span>Produk</span></a>
             </li>
 
             <!-- Nav Item - client -->
             <li class="nav-item">
                 <a class="nav-link" href="#">
                     <i class="fas fa-fw fa-users"></i>
-                    <span>Clients</span></a>
+                    <span>Klien</span></a>
             </li>
 
             <!-- Nav Item - contact -->
             <li class="nav-item">
                 <a class="nav-link" href="#">
                     <i class="fas fa-fw fa-address-book"></i>
-                    <span>Contact</span></a>
+                    <span>Kontak</span></a>
             </li>
 
             <!-- Nav Item - contact -->

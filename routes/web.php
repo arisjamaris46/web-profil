@@ -5,6 +5,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProductController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,5 +26,8 @@ Route::post('login',[AuthController::class,'login'])->name('login');
 Route::get('register',[AuthController::class,'register'])->name('register');
 Route::post('register',[AuthController::class,'store'])->name('register');
 Route::get('logout',[AuthController::class,'logout'])->name('logout');
+Route::get('product',[ProductController::class,'index'])->name('product')->middleware('auth');
+Route::get('product/tambah',[ProductController::class,'create'])->name('tambah.produk')->middleware('auth');
+Route::post('product/tambah',[ProductController::class,'store'])->name('tambah.produk');
 
 

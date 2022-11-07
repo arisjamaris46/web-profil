@@ -3,10 +3,10 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Flattern - Flat and trendy bootstrap site template</title>
+  <title>Rava Store - {{ $title }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="" />
-  <meta name="author" content="" />
+  <meta name="author" content="TEKNO DEVELOPER, TEKNO ENTERPREUNER" />
 
   <!-- css -->
   <link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700|Open+Sans:300,400,600,700" rel="stylesheet">

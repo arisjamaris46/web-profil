@@ -18,6 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('nm_produk');
             $table->string('ket_produk');
             $table->integer('hrg_produk');
+            $table->string('gbr_produk');
         });
     }
 
