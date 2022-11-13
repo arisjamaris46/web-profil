@@ -11,6 +11,14 @@
 
 <div class="row">
     <div class="col-xl-12">
+    @if ($message = session('success'))
+            <x-alert type="success" :message="$message" />
+    @endif
+
+    @if ($message = session('error'))
+            <x-alert type="danger" :message="$message" />
+    @endif
+
         <div class="table-responsive">
             <table class="table table-bordered" width="100%" id="productTable">
                 <thead>
@@ -33,7 +41,7 @@
                             <td>{{ Str::substr($item->ket_produk, 0, 50)}}</td>
                             <td><img src="{{ asset('storage/'.$item->gbr_produk)}}" class="img-thumbnail" alt="produk" width="72px"></td>
                             <td>
-                                <a href="{{ route('admin' )}}" class="btn btn-sm btn-primary"><i class="fas fa-edit fa-fw"></i>Edit</a>&nbsp;<a role="button" class="btn btn-sm btn-danger"><i class="fas fa-times fa-fw"></i>Hapus</a>
+                                <a href="{{ route('edit.produk',$item->id)}}" class="btn btn-sm btn-primary"><i class="fas fa-edit fa-fw"></i>Edit</a>&nbsp;<a href="{{ route('hapus.produk',$item->id) }}" role="button" class="btn btn-sm btn-danger"><i class="fas fa-times fa-fw"></i>Hapus</a>
                             </td>
                         </tr>
                     @endforeach

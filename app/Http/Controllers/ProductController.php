@@ -85,7 +85,13 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Products::find($id);
+        $data = [
+            'title' => 'Edit Produk',
+            'product'=> $product
+        ];   
+        // dd($product);
+        return view('backend.pages.product.edit',$data);
     }
 
     /**
@@ -97,7 +103,32 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'product_name'=>['required'],
+            'product_desc'=>['required'],
+            'product_price'=>['required','numeric'],
+        ]);
+
+        $product = Products::find($id);
+        if(!empty($request->file('product_file'))){
+            $path =$request->file('product_file')->store('products');
+            $validated['product_file'] = $path;
+
+            $product->nm_produk = $validated['product_name'];
+            $product->ket_produk = $validated['product_desc'];
+            $product->hrg_produk = $validated['product_price'];
+            $product->gbr_produk = $validated['product_file'];
+
+            $product->save();
+        }else{
+            $product->nm_produk = $validated['product_name'];
+            $product->ket_produk = $validated['product_desc'];
+            $product->hrg_produk = $validated['product_price'];
+
+            $product->save();
+        }
+
+        return back()->with('success','Data Produk berhasil diedit');
     }
 
     /**
@@ -108,6 +139,12 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $deleted = Products::destroy($id);
+        if($deleted) {
+            return redirect()->route('product')->with('success','Data Produk berhasil dihapus');
+
+        }else{
+            return redirect()->route('product')->with('error','Data Produk gagal dihapus');
+        }
     }
 }

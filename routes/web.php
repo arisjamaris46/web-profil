@@ -29,5 +29,8 @@ Route::get('logout',[AuthController::class,'logout'])->name('logout');
 Route::get('product',[ProductController::class,'index'])->name('product')->middleware('auth');
 Route::get('product/tambah',[ProductController::class,'create'])->name('tambah.produk')->middleware('auth');
 Route::post('product/tambah',[ProductController::class,'store'])->name('tambah.produk');
+Route::get('product/edit/{id}',[ProductController::class,'edit'])->name('edit.produk')->middleware('auth');
+Route::post('product/edit/{id}',[ProductController::class,'update'])->name('update.produk')->middleware('auth');
+Route::get('product/hapus/{id}',[ProductController::class,'destroy'])->name('hapus.produk')->middleware('auth');
 
 
