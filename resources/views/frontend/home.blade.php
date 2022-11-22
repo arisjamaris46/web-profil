@@ -74,7 +74,10 @@
                             <span class="overlay-img-thumb font-icon-plus"></span>
                             </a>
                         <!-- Thumb Image and Description -->
-                        <img src="{{ asset('storage/'.$item->gbr_produk)}}" alt="{{ $item->ket_produk }}">
+                        <div>
+                          <img src="{{ asset('storage/'.$item->gbr_produk)}}" alt="{{ $item->ket_produk }}">
+                          
+                        </div>
                         </li>
                         <!-- End Item Project -->
 
@@ -99,66 +102,14 @@
           <div class="span12">
             <h4><strong>Our Client</strong></h4>
             <ul id="mycarousel" class="jcarousel-skin-tango recent-jcarousel clients">
-              <li>
-                <a href="#">
-					<img src="img/dummies/clients/client1.png" class="client-logo" alt="" />
-					</a>
-              </li>
-              <li>
-                <a href="#">
-					<img src="img/dummies/clients/client2.png" class="client-logo" alt="" />
-					</a>
-              </li>
-              <li>
-                <a href="#">
-					<img src="img/dummies/clients/client3.png" class="client-logo" alt="" />
-					</a>
-              </li>
-              <li>
-                <a href="#">
-					<img src="img/dummies/clients/client4.png" class="client-logo" alt="" />
-					</a>
-              </li>
-              <li>
-                <a href="#">
-					<img src="img/dummies/clients/client5.png" class="client-logo" alt="" />
-					</a>
-              </li>
-              <li>
-                <a href="#">
-					<img src="img/dummies/clients/client6.png" class="client-logo" alt="" />
-					</a>
-              </li>
-              <li>
-                <a href="#">
-					<img src="img/dummies/clients/client1.png" class="client-logo" alt="" />
-					</a>
-              </li>
-              <li>
-                <a href="#">
-					<img src="img/dummies/clients/client2.png" class="client-logo" alt="" />
-					</a>
-              </li>
-              <li>
-                <a href="#">
-					<img src="img/dummies/clients/client3.png" class="client-logo" alt="" />
-					</a>
-              </li>
-              <li>
-                <a href="#">
-					<img src="img/dummies/clients/client4.png" class="client-logo" alt="" />
-					</a>
-              </li>
-              <li>
-                <a href="#">
-					<img src="img/dummies/clients/client5.png" class="client-logo" alt="" />
-					</a>
-              </li>
-              <li>
-                <a href="#">
-					<img src="img/dummies/clients/client6.png" class="client-logo" alt="" />
-					</a>
-              </li>
+              @foreach ($clients as $item)
+                  <li>
+                    <a href="#">
+                      <img src="{{asset('storage/'.$item->gbr_logo)}}" class="client-logo" alt="Klien Rava Store" />
+                    </a>
+                  </li>
+                  
+              @endforeach
             </ul>
           </div>
         </div>
@@ -172,28 +123,28 @@
           <div class="span12">
             <h4>Get in touch with us by filling <strong>contact form below</strong></h4>
 
-            <form action="" method="post" role="form" class="contactForm">
+            <form action="#" role="form" class="contactForm">
               <div id="sendmessage">Your message has been sent. Thank you!</div>
               <div id="errormessage"></div>
 
               <div class="row">
                 <div class="span4 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <input type="text" name="name" class="form-control" required id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                   <div class="validation"></div>
                 </div>
                 <div class="span4 form-group">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                  <input type="email" class="form-control" required name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
                   <div class="validation"></div>
                 </div>
                 <div class="span4 form-group">
-                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                  <input type="text" class="form-control" required name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
                   <div class="validation"></div>
                 </div>
                 <div class="span12 margintop10 form-group">
                   <textarea class="form-control" name="message" rows="12" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
                   <div class="validation"></div>
                   <p class="text-center">
-                    <button class="btn btn-large btn-theme margintop10" type="submit">Submit message</button>
+                    <button class="btn btn-large btn-primary margintop10" type="submit">Submit message</button>
                   </p>
                 </div>
               </div>

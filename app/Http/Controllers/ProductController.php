@@ -16,7 +16,7 @@ class ProductController extends Controller
     public function index()
     {
         $data = [
-            'title'=>'Product',
+            'title'=>'Produk',
             'products'=>Products::all()
         ];
 
@@ -49,7 +49,7 @@ class ProductController extends Controller
             'product_name'=>['required'],
             'product_desc'=>['required'],
             'product_price'=>['required','numeric'],
-            'product_file'=>['max:6144','image','file']
+            'product_file'=>['required','max:6144','image','file']
         ]);
         $path =$request->file('product_file')->store('products');
         if($request->file('product_file')){
@@ -124,7 +124,8 @@ class ProductController extends Controller
             $product->nm_produk = $validated['product_name'];
             $product->ket_produk = $validated['product_desc'];
             $product->hrg_produk = $validated['product_price'];
-
+            $product->gbr_produk = $request->gbr_produk;
+            
             $product->save();
         }
 

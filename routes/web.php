@@ -6,6 +6,7 @@ use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ClientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,5 +33,11 @@ Route::post('product/tambah',[ProductController::class,'store'])->name('tambah.p
 Route::get('product/edit/{id}',[ProductController::class,'edit'])->name('edit.produk')->middleware('auth');
 Route::post('product/edit/{id}',[ProductController::class,'update'])->name('update.produk')->middleware('auth');
 Route::get('product/hapus/{id}',[ProductController::class,'destroy'])->name('hapus.produk')->middleware('auth');
+Route::get('klien',[ClientController::class,'index'])->name('klien')->middleware('auth');
+Route::get('klien/tambah',[ClientController::class,'create'])->name('tambah.klien')->middleware('auth');
+Route::post('klien/tambah',[ClientController::class,'store'])->name('tambah.klien');
+Route::get('klien/edit/{id}',[ClientController::class,'edit'])->name('edit.klien')->middleware('auth');
+Route::post('klien/edit/{id}',[ClientController::class,'update'])->name('update.klien')->middleware('auth');
+Route::get('klien/hapus/{id}',[ClientController::class,'destroy'])->name('hapus.klien')->middleware('auth');
 
 

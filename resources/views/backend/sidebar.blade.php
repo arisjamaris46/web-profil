@@ -41,7 +41,7 @@
 
             <!-- Nav Item - client -->
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ route('klien') }}">
                     <i class="fas fa-fw fa-users"></i>
                     <span>Klien</span></a>
             </li>
