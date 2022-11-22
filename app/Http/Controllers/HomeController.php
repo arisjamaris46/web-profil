@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Products;
 use Illuminate\Http\Request;
+use App\models\Clients;
 
 class HomeController extends Controller
 {
@@ -17,7 +18,8 @@ class HomeController extends Controller
         //loade template
         $data = [
             'title' => 'Home',
-            'products' => Products::all()
+            'products' => Products::take(8)->get(),
+            'clients' => Clients::take(6)->get()
         ];
         return view('frontend.home',$data);
     }

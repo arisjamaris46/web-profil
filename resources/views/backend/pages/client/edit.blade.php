@@ -4,7 +4,7 @@
  <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">{{$title}}</h1>
-    <a href="{{route('product')}}" class="btn btn-sm btn-dark d-sm-inline-block rounded">
+    <a href="{{route('klien')}}" class="btn btn-sm btn-dark d-sm-inline-block rounded">
         <i class="fas fa-arrow-left"></i> Kembali
     </a>
 </div>
@@ -20,38 +20,38 @@
 
         <div class="card">
             <div class="card-body">
-                <form method="POST" enctype="multipart/form-data" action="{{route('update.produk',$product->id)}}">
+                <form method="POST" enctype="multipart/form-data" action="{{route('update.klien',$client->id)}}">
                     @csrf
                     <div class="mb-3 form-group">
-                        <label for="product_name">Nama Produk</label>
-                        <input type="text" class="form-control @error('product_name') @enderror" name="product_name" id="product_name" value="{{ old('product_name',$product->nm_produk) }}" autocomplete="off">
-                        @error('product_name')
+                        <label for="client_name">Nama</label>
+                        <input type="text" class="form-control @error('client_name') @enderror" name="client_name" id="client_name" value="{{ old('client_name',$client->nm_klien) }}" autocomplete="off">
+                        @error('client_name')
                         <span class="text-danger">{{$message}}</span>
                         @enderror
                     </div>
                     <div class="mb-3 form-group">
-                        <label for="product_desc">Keterangan Produk</label>
-                        <textarea type="text" class="form-control @error('product_desc') @enderror" name="product_desc" id="product_desc" rows="3">{{ old('product_desc',$product->ket_produk)}}</textarea>
-                        @error('product_desc')
+                        <label for="mobile_phone">No.Telp / HP</label>
+                        <input type="text" class="form-control @error('mobile_phone') @enderror" name="mobile_phone" id="mobile_phone" value="{{ old('mobile_phone',$client->no_hp) }}" autocomplete="off">
+                        @error('mobile_phone')
                         <span class="text-danger">{{$message}}</span>
                         @enderror
                     </div>
                     <div class="mb-3 form-group">
-                        <label for="product_price">Harga Produk</label>
-                        <input type="number" class="form-control @error('product_price') @enderror" name="product_price" id="product_price" value="{{ old('product_price',$product->hrg_produk) }}" autocomplete="off">
-                        @error('product_price')
+                        <label for="address">Alamat</label>
+                        <textarea type="text" class="form-control @error('address') @enderror" name="address" id="address" rows="3">{{ old('address',$client->alamat)}}</textarea>
+                        @error('address')
                         <span class="text-danger">{{$message}}</span>
                         @enderror
                     </div>
                     <div class="mb-3 form-group">
-                        <label for="product_file">Upload Produk</label>
-                        <input type="file" name="product_file" id="product_file" class="form-control @error('product_file') @enderror">
-                        @error('product_file')
+                        <label for="img_file">Upload Gambar</label>
+                        <input type="file" name="img_file" id="img_file" class="form-control @error('img_file') @enderror">
+                        @error('img_file')
                         <span class="text-danger">{{$message}}</span>
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <input type="hidden" name="old_file" id="old_file" value="{{$product->gbr_produk}}">
+                        <input type="hidden" name="old_file" id="old_file" value="{{$client->gbr_logo}}">
                         <button type="submit" class="btn btn-sm btn-primary rounded"><i class="fas fa-save fa-fw"></i>Simpan</button>
                     </div>
 
