@@ -16,9 +16,11 @@ class CreateContactTable extends Migration
         Schema::create('contact', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('email')->unique();
+            $table->string('email')->nullable();
             $table->string('subjek');
             $table->string('pesan');
+            $table->dateTime('tgl_kirim')->useCurrent();
+            $table->enum('status',['pending','progress','success'])->default('pending');
         });
     }
 
