@@ -207,6 +207,10 @@ jQuery(document).ready(function($) {
     };
   })();
 
+  $('button.close').on('click',function(){
+    $('.toast').css('display','none');
+  });
+
   Page.init();
 
 });

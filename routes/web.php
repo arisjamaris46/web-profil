@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,7 @@ use App\Http\Controllers\ClientController;
 |
 */
 
-Route::get('/',[HomeController::class,'index']);
+Route::get('/',[HomeController::class,'index'])->name('home');
 Route::get('/gallery',[GalleryController::class,'index']);
 Route::get('admin',[AdminController::class,'index'])->name('admin')->middleware('auth');
 Route::get('login',[AuthController::class,'index'])->name('login')->middleware('guest');
@@ -39,5 +40,9 @@ Route::post('klien/tambah',[ClientController::class,'store'])->name('tambah.klie
 Route::get('klien/edit/{id}',[ClientController::class,'edit'])->name('edit.klien')->middleware('auth');
 Route::post('klien/edit/{id}',[ClientController::class,'update'])->name('update.klien')->middleware('auth');
 Route::get('klien/hapus/{id}',[ClientController::class,'destroy'])->name('hapus.klien')->middleware('auth');
+Route::get('kontak/send',[ContactController::class,'send_message'])->name('kirim.pesan');
+Route::get('kontak',[ContactController::class,'index'])->name('kontak.pesan')->middleware('auth');
+Route::get('approve_pesanan/{id}',[ContactController::class,'approve'])->name('approve.pesanan')->middleware('auth');
+Route::get('progress_pesanan/{id}',[ContactController::class,'progress'])->name('progress.pesanan')->middleware('auth');
 
 

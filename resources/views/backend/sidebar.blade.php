@@ -48,7 +48,7 @@
 
             <!-- Nav Item - contact -->
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ route('kontak.pesan') }}">
                     <i class="fas fa-fw fa-address-book"></i>
                     <span>Kontak</span></a>
             </li>
