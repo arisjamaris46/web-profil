@@ -36,10 +36,24 @@
                         <span class="text-danger">{{$message}}</span>
                         @enderror
                     </div>
+                     <div class="mb-3 form-group">
+                        <label for="job">Pekerjaan</label>
+                        <input type="text" class="form-control @error('job') @enderror" name="job" id="job" value="{{ old('job',$client->pekerjaan) }}" autocomplete="off">
+                        @error('job')
+                        <span class="text-danger">{{$message}}</span>
+                        @enderror
+                    </div>
                     <div class="mb-3 form-group">
                         <label for="address">Alamat</label>
                         <textarea type="text" class="form-control @error('address') @enderror" name="address" id="address" rows="3">{{ old('address',$client->alamat)}}</textarea>
                         @error('address')
+                        <span class="text-danger">{{$message}}</span>
+                        @enderror
+                    </div>
+                    <div class="mb-3 form-group">
+                        <label for="testimonial">Testimoni</label>
+                        <textarea type="text" class="form-control @error('testimonial') @enderror" name="testimonial" id="testimonial" rows="3">{{ old('testimonial',$client->testimoni)}}</textarea>
+                        @error('testimonial')
                         <span class="text-danger">{{$message}}</span>
                         @enderror
                     </div>
