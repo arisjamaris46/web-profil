@@ -55,7 +55,7 @@
 
             <!-- Nav Item - contact -->
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ route('blogs') }}">
                     <i class="fab fa-fw fa-blogger"></i>
                     <span>Blog</span></a>
             </li>

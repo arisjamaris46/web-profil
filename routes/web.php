@@ -8,6 +8,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,5 +45,9 @@ Route::get('kontak/send',[ContactController::class,'send_message'])->name('kirim
 Route::get('kontak',[ContactController::class,'index'])->name('kontak.pesan')->middleware('auth');
 Route::get('approve_pesanan/{id}',[ContactController::class,'approve'])->name('approve.pesanan')->middleware('auth');
 Route::get('progress_pesanan/{id}',[ContactController::class,'progress'])->name('progress.pesanan')->middleware('auth');
+Route::get('blog',[BlogController::class,'index'])->name('blog');
+Route::get('blogs',[BlogController::class,'list'])->name('blogs')->middleware('auth');
+Route::get('blogs/tambah',[BlogController::class,'create'])->name('posting')->middleware('auth');
+Route::post('blogs/tambah',[BlogController::class,'store'])->name('posting')->middleware('auth');
 
 

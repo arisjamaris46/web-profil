@@ -19,7 +19,9 @@ class CreateBlogTable extends Migration
             $table->string('slug');
             $table->string('file_gbr');
             $table->text('ket');
-            $table->integer('user_id');
+            $table->integer('id_kategori');
+            $table->json('tags');
+            $table->integer('id_user');
             $table->timestamps();
         });
     }

@@ -47,23 +47,23 @@
                   <nav>
                     <ul class="nav topnav">
                       <li class="dropdown active">
-                        <a href="index.html">Home <i class="icon-angle-down"></i></a>
+                        <a href="{{route('home') }}">Home <i class="icon-angle-down"></i></a>
                       </li>
                       <li class="dropdown">
-                        <a href="#about-us">About Us</a>
+                        <a href="{{route('home') }}#about-us">About Us</a>
 
                       </li>
                       <li class="dropdown">
-                        <a href="#products">Products</a>
+                        <a href="{{route('home') }}#products">Products</a>
                       </li>
                       <li class="dropdown">
-                          <a href="#clients">Clients</a>
+                          <a href="{{route('home') }}#clients">Clients</a>
                       </li>
                       <li class="dropdown">
-                        <a href="#contacts">Contact </a>
+                        <a href="{{ route('home') }}#contacts">Contact </a>
                       </li>
                         <li class="dropdown">
-                          <a href="#">Blog</a>
+                          <a href="{{ route('blog') }}">Blog</a>
                         </li>
                     </ul>
                   </nav>

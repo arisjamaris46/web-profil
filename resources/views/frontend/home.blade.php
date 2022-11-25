@@ -14,7 +14,7 @@
     </div>
   </div>
 @endif
-<section id="about-us">
+<section>
       <!-- start slider -->
       <!-- Slider -->
       <div id="nivo-slider">
@@ -60,87 +60,109 @@
       </div>
       <!-- end slider -->
 
-      <div class="row">
+</section>
+
+<!-- section blog -->
+<section class="about-us">
+    <div class="container">
+        <div class="row">
+          <div class="span6">
+            <h2>Welcome to <strong>Rava Store</strong></h2>
+            <p>
+              Ei mel semper vocent persequeris, nominavi patrioque vituperata id vim, cu eam gloriatur philosophia deterruisset. Meliore perfecto repudiare ea nam, ne mea duis temporibus. Id quo accusam consequuntur, eum ea debitis urbanitas. Nibh reformidans vim ne.
+            </p>
+            <p>
+              Iudico definiebas eos ea, dicat inermis hendrerit vel ei, legimus copiosae quo at. Per utinam corrumpit prodesset te, liber praesent eos an. An prodesset neglegentur qui, usu ancillae posidonium in, mea ex eros animal scribentur. Et simul fabellas sit.
+              Populo inimicus ne est.
+            </p>
+            <p>
+              Alii wisi phaedrum quo te, duo cu alia neglegentur. Quo nonumy detraxit cu, viderer reformidans ut eos, lobortis euripidis posidonium et usu. Sed meis bonorum minimum cu, stet aperiam qualisque eu vim, vide luptatum ei nec. Ei nam wisi labitur mediocrem.
+              Nam saepe appetere ut, veritus graecis minimum no vim. Vidisse impedit id per.
+            </p>
+          </div>
+          <div class="span6">
+            <!-- start flexslider -->
+            <div class="flexslider">
+              <ul class="slides">
+                <li>
+                  <img src="img/works/full/image-01-full.jpg" alt="" />
+                </li>
+                <li>
+                  <img src="img/works/full/image-02-full.jpg" alt="" />
+                </li>
+                <li>
+                  <img src="img/works/full/image-03-full.jpg" alt="" />
+                </li>
+              </ul>
+            </div>
+            <!-- end flexslider -->
+          </div>
+    </div>
+<!--   solidline   -->
+    <div class="row">
         <div class="span12">
-          Rava Store, ipsum dolor sit amet consectetur adipisicing elit. Sint, cumque. Perferendis itaque explicabo sed qui, maxime possimus error ullam rem nam quisquam inventore excepturi temporibus distinctio iusto omnis molestiae voluptates?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque, dolor soluta. Excepturi ea ut quam quae perferendis quidem sapiente temporibus aperiam aliquid, corrupti totam assumenda explicabo.
+            <div class="solidline"></div>
         </div>
-      </div>
-</section>
+    </div>
+<!--   solidline   -->
 
-<section id="products">
+    </div>
+</section>
+<!-- endsection blog -->
+
+<!-- section product -->
+ <section id="products">
       <div class="container">
-        <!-- divider -->
         <div class="row">
           <div class="span12">
-            <div class="solidline">
-            </div>
-          </div>
-        </div>
-        <!-- end divider -->
-        <!-- Portfolio Projects -->
-        <div class="row">
-          <div class="span12">
-            <h4 class="heading"> <strong>Our Product</strong></h4>
-            <div class="row">
-              <section id="projects">
-                <ul id="thumbs" class="portfolio">
-                    @foreach ($products as $item)
-                        <!-- Item Project and Filter Name -->
-                        <li class="item-thumbs span3 design" data-id="id-0" data-type="web">
-                        <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                        <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="{{ $item->nm_produk }} - Rp.{{$item->hrg_produk}}" href="{{ asset('storage/'.$item->gbr_produk)}}">
-                            <span class="overlay-img"></span>
-                            <span class="overlay-img-thumb font-icon-plus"></span>
-                            </a>
-                        <!-- Thumb Image and Description -->
-                        <div>
-                          <img src="{{ asset('storage/'.$item->gbr_produk)}}" alt="{{ $item->ket_produk }}">
-                          
-                        </div>
-                        </li>
-                        <!-- End Item Project -->
+            <article>
+              <div class="top-wrapper">
+                <div class="post-heading">
+                  <h3><a href="#">Our Product</a></h3>
+                </div>
 
+                 <p>
+                    The products we offer are guaranteed quality and have many variants. The price is very affordable among the lower middle class. No other, please if you are interested, you can contact us or fill in the order form below.
+                </p>
+
+                <!-- start flexslider -->
+                <div class="flexslider">
+                  <ul class="slides">
+
+                   @foreach($products as $item)
+                    <li>
+                      <img src="{{ asset('storage/'.$item->gbr_produk)}}" alt="produk rava" />
+                    </li>
                     @endforeach
+                  </ul>
+                </div>
+                <!-- end flexslider -->
+              </div>
 
-                </ul>
-              </section>
-            </div>
+            </article>
           </div>
+
         </div>
-        <!-- End Portfolio Projects -->
-        <!-- divider -->
+
+        <!--   solidline   -->
         <div class="row">
-          <div class="span12">
-            <div class="solidline">
+            <div class="span12">
+                <div class="solidline"></div>
             </div>
-          </div>
         </div>
-        <!-- end divider -->
+        <!--   solidline   -->
 
-        <div class="row" id="clients">
-          <div class="span12">
-            <h4><strong>Our Client</strong></h4>
-            <ul id="mycarousel" class="jcarousel-skin-tango recent-jcarousel clients">
-              @foreach ($clients as $item)
-                  <li>
-                    <a href="#">
-                      <img src="{{asset('storage/'.$item->gbr_logo)}}" class="client-logo" alt="Klien Rava Store" />
-                    </a>
-                  </li>
-                  
-              @endforeach
-            </ul>
-          </div>
-        </div>
       </div>
 </section>
+<!-- endsection product -->
+
 <!-- contact -->
 <section id="contacts">
 
     <div class="container">
       <div class="row">
         <div class="span12">
-          <h4>Get in touch with us by filling <strong>contact form below</strong></h4>
+          <h4>Please fill in your order in <strong>Our Contact Form</strong></h4>
 
           <form action="{{ route('kirim.pesan') }}" method="GET" role="form" class="contactForm">
             @csrf
@@ -164,13 +186,57 @@
                 <textarea class="form-control" name="message" rows="12" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
                 <div class="validation"></div>
                 <p class="text-center">
-                  <button class="btn btn-large btn-primary margintop10" type="submit">Submit message</button>
+                  <button class="btn btn-large btn-default margintop10" type="submit">Submit message</button>
                 </p>
               </div>
             </div>
           </form>
         </div>
       </div>
+
+      <!--   solidline   -->
+        <div class="row">
+            <div class="span12">
+                <div class="solidline"></div>
+            </div>
+        </div>
+    <!--   solidline   -->
+
     </div>
 </section>
+<!--  endsection contact -->
+
+<!-- section client -->
+<section id="clients">
+      <div class="container">
+        <div class="row marginbot30">
+          <div class="span12">
+            <h4 class="heading"><strong>Client</strong> testimonials<span></span></h4>
+            <div class="row">
+
+            @foreach($clients as $item)
+              <div class="span4">
+                <div class="wrapper">
+                  <div class="testimonial">
+                    <p class="text">
+                      <i class="icon-quote-left icon-48"></i>{{ $item->testimoni }}
+                    </p>
+                    <div class="author">
+                      <img src="{{ asset('storage/'.$item->gbr_logo)}}" class="img-circle bordered" alt="" width="48"/>
+                      <p class="name">
+                      {{ $item->nm_klien }}
+                      </p>
+                      <span class="info">{{ $item->pekerjaan }}, {{ $item->no_hp}}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              @endforeach
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+<!-- endsection client -->
 @endsection

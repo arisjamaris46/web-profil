@@ -32,7 +32,7 @@ class ClientController extends Controller
         $data = [
             'title' => 'Tambah Klien'
         ];
-        
+
         return view('backend.pages.client.add',$data);
     }
 
@@ -47,6 +47,8 @@ class ClientController extends Controller
         $validated = $request->validate([
             'client_name'=>['required'],
             'mobile_phone'=>['required','max:15'],
+            'job'=>['required'],
+            'testimonial'=>['required'],
             'address'=>['required'],
             'img_file'=>['required','max:3072','image','file']
         ]);
@@ -58,6 +60,8 @@ class ClientController extends Controller
 
         $client = new Clients;
         $client->nm_klien =$validated['client_name'];
+        $client->pekerjaan = $validated['job'];
+        $client->testimoni = $validated['testimonial'];
         $client->no_hp = $validated['mobile_phone'];
         $client->alamat = $validated['address'];
         $client->gbr_logo = $validated['img_file'];
@@ -104,6 +108,8 @@ class ClientController extends Controller
     {
         $validated = $request->validate([
             'client_name'=>['required'],
+            'job'=>['required'],
+            'testimonial'=>['required'],
             'mobile_phone'=>['required','max:15'],
             'address'=>['required'],
         ]);
@@ -113,6 +119,8 @@ class ClientController extends Controller
             $path = $request->file('img_file')->store('clients');
             $validated['img_file'] = $path;
             $client->nm_klien =$validated['client_name'];
+            $client->pekerjaan = $validated['job'];
+            $client->testimoni = $validated['testimonial'];
             $client->no_hp = $validated['mobile_phone'];
             $client->alamat = $validated['address'];
             $client->gbr_logo = $validated['img_file'];
@@ -120,6 +128,8 @@ class ClientController extends Controller
             $client->save();
         }else{
             $client->nm_klien =$validated['client_name'];
+            $client->pekerjaan = $validated['job'];
+            $client->testimoni = $validated['testimonial'];
             $client->no_hp = $validated['mobile_phone'];
             $client->alamat = $validated['address'];
             $client->gbr_logo = $request->old_file;
