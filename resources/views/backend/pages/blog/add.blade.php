@@ -50,21 +50,9 @@
                     </div>
                     <div class="mb-3 form-group">
                         <label for="tags">Tag</label>
-                        <select type="text" class="form-control @error('tags') @enderror" name="tags" id="tags" value="{{ old('tags') }}" >
+                        <select multiple="multiple"  class="form-control @error('tags') @enderror" name="tags[]" id="tags" value="{{ old('tags') }}" >
                             <option value="">Choose Tags</option>
                             @foreach($tags as $item)
-                            <option value="{{$item->tag}}">{{$item->tag}}</option>
-                            @endforeach
-                        </select><br>
-                        <select type="text" class="form-control @error('tags') @enderror" name="tags" id="tags" value="{{ old('tags') }}" >
-                            <option value="">Choose Tags</option>
-                            @foreach($tags as $tag)
-                            <option value="{{$item->tag}}">{{$item->tag}}</option>
-                            @endforeach
-                        </select><br>
-                        <select type="text" class="form-control @error('tags') @enderror" name="tags" id="tags" value="{{ old('tags') }}" >
-                            <option value="">Choose Tags</option>
-                            @foreach($tags as $tag)
                             <option value="{{$item->tag}}">{{$item->tag}}</option>
                             @endforeach
                         </select>
@@ -90,4 +78,14 @@
     </div>
 </div>
 
+<script>
+
+    $(document).ready(function(){
+        <!-- select 2 multiple -->
+        $('#tags').select2({
+            placeholder:"Select",
+            allowClear:true
+        })
+    })
+</script>
 @endsection

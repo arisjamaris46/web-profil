@@ -11,7 +11,7 @@ class Blog extends Model
     protected $table = 'blog';
 
     public function user(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'id_user');
     }
 
     public function categories(){
