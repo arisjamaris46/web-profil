@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Tag;
+use App\Models\BlogTags;
 
 class BlogController extends Controller
 {
@@ -51,34 +52,66 @@ class BlogController extends Controller
 
     public function store(Request $request){
         
-        // dd(\json_encode($request->tags));
+        $tags = implode(',',$request->tags);
+        $arrTags = explode(',', $tags);
+        // dd(json_encode($arrTags));
         $validated = $request->validate([
             'title'=>['required','max:200'],
             'img_file'=>['required','max:3072','image','file'],
             'content'=>['required'],
             'category'=>['required'],
             'tags'=>['required'],
-            'author'=>['author']
         ]);
 
         if($request->file('img_file')){
             $validated['img_file'] = $request->file('img_file')->store('blogs');
         }
 
-        $validated['tags'] = json_encode($request->tags);
 
+        /*simpan data blog */ 
         $blog = new Blog;
         $blog->judul = $validated['title'];
         $blog->slug = Str::of($validated['title'])->slug('-');
         $blog->file_gbr = $validated['img_file'];
         $blog->ket = $validated['content'];
         $blog->id_kategori = $validated['category'];
-        $blog->tags = $validated['tags'];
         $blog->id_user = Auth::user()->id;
         $blog->created_at = Date('Y-m-d h:i:s');
-
         $blog->save();
 
+        /*simpan data blog tags*/
+        foreach($arrTags as $val){
+            $blogTags = new BlogTags;
+            $blogTags->id_blog = $blog->id;
+            $blogTags->id_tag = $val;
+            $blogTags->save();
+        }
+
         return back()->with('success','Posting blog berhasil disimpan');
+    }
+
+    public function edit($id){
+        $blog = Blog::find($id);
+        $arrTags = explode(",",$blog->tags);
+        // dd($arrTags);
+        $data = [
+            'title' => 'Edit Postingan',
+            'blog' => $blog,
+            'categories' => Category::all(),
+            'tags' => Tag::all(),
+            'arrTags'=>$arrTags
+        ];
+
+       
+
+        return view('backend/pages/blog/edit',$data);
+    }
+
+    public function update(){
+        return "update hello world";
+    }
+
+    public function destroy($id){
+        return "hapus hello world";
     }
 }

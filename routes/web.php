@@ -49,5 +49,8 @@ Route::get('blog',[BlogController::class,'index'])->name('blog');
 Route::get('blogs',[BlogController::class,'list'])->name('blogs')->middleware('auth');
 Route::get('blogs/tambah',[BlogController::class,'create'])->name('posting')->middleware('auth');
 Route::post('blogs/tambah',[BlogController::class,'store'])->name('posting')->middleware('auth');
+Route::get('blogs/edit/{id}',[BlogController::class,'edit'])->name('edit.blog')->middleware('auth');
+Route::post('blogs/edit/{id}',[BlogController::class,'update'])->name('update.blog')->middleware('auth');
+Route::get('blogs/hapus/{id}',[BlogController::class,'delete'])->name('hapus.blog')->middleware('auth');
 
 

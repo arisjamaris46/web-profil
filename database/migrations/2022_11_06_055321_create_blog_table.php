@@ -20,7 +20,6 @@ class CreateBlogTable extends Migration
             $table->string('file_gbr');
             $table->text('ket');
             $table->integer('id_kategori');
-            $table->longText('tags');
             $table->foreignId('id_user');
             $table->timestamps();
         });
