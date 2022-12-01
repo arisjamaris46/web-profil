@@ -53,7 +53,7 @@
                         <select multiple="multiple"  class="form-control @error('tags') @enderror" name="tags[]" id="tags" value="{{ old('tags') }}" >
                             <option value="">Choose Tags</option>
                             @foreach($tags as $item)
-                            <option value="{{$item->tag}}">{{$item->tag}}</option>
+                            <option value="{{$item->id}}">{{$item->tag}}</option>
                             @endforeach
                         </select>
                         @error('tags')
@@ -82,6 +82,11 @@
 
     $(document).ready(function(){
         <!-- select 2 multiple -->
+         $('#category').select2({
+            placeholder:"Select",
+            allowClear:true
+        });
+
         $('#tags').select2({
             placeholder:"Select",
             allowClear:true

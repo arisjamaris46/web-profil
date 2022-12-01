@@ -43,7 +43,7 @@
                             <td>{{ $item->created_at }}</td>
                             <td><img src="{{ asset('storage/'.$item->file_gbr)}}" class="img-thumbnail" alt="klien" width="72px"></td>
                             <td>
-                                <a href="#" class="btn btn-sm btn-primary"><i class="fas fa-edit fa-fw"></i>Edit</a>&nbsp;<a href="#" role="button" class="btn btn-sm btn-danger"><i class="fas fa-times fa-fw"></i>Hapus</a>
+                                <a href="{{ route('edit.blog',$item->id)}}" class="btn btn-sm btn-primary"><i class="fas fa-edit fa-fw"></i>Edit</a>&nbsp;<a href="#" role="button" class="btn btn-sm btn-danger"><i class="fas fa-times fa-fw"></i>Hapus</a>
                             </td>
                         </tr>
                     @endforeach
