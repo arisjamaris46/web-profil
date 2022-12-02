@@ -27,7 +27,8 @@
                         <th>Judul</th>
                         <th>Isi</th>
                         <th>Pembuat</th>
-                        <th>Tanggal publish</th>
+                        <th>Kategori</th>
+                        <th>Tanggal</th>
                         <th>File Gambar</th>
                         <th>Opsi</th>
                     </tr>
@@ -40,10 +41,11 @@
                             <td>{{ $item->judul}}</td>
                             <td>{{ Str::substr($item->ket, 0, 50)}}</td>
                             <td>{{ $item->user->username}}</td>
-                            <td>{{ $item->created_at }}</td>
+                            <td>{{$item->categories->kategori}}</td>
+                            <td>{{ date_format($item->created_at,'Y-m-d h:i')  }}</td>
                             <td><img src="{{ asset('storage/'.$item->file_gbr)}}" class="img-thumbnail" alt="klien" width="72px"></td>
                             <td>
-                                <a href="{{ route('edit.blog',$item->id)}}" class="btn btn-sm btn-primary"><i class="fas fa-edit fa-fw"></i>Edit</a>&nbsp;<a href="#" role="button" class="btn btn-sm btn-danger"><i class="fas fa-times fa-fw"></i>Hapus</a>
+                                <a href="{{ route('edit.blog',$item->id)}}" class="btn btn-sm btn-primary"><i class="fas fa-edit fa-fw"></i>Edit</a><a href="#" role="button" class="btn btn-sm btn-danger"><i class="fas fa-times fa-fw"></i>Hapus</a>
                             </td>
                         </tr>
                     @endforeach

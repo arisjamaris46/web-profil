@@ -31,15 +31,15 @@
                     </div>
                     <div class="mb-3 form-group">
                         <label for="content">Konten</label>
-                        <textarea type="text" class="form-control @error('content') @enderror" name="content" id="content" rows="3">{{ old('content')}}</textarea>
+                        <textarea type="text" class="form-control @error('content') @enderror" name="content" id="content" rows="10">{{ old('content')}}</textarea>
                         @error('content')
                         <span class="text-danger">{{$message}}</span>
                         @enderror
                     </div>
                     <div class="mb-3 form-group">
                         <label for="category">Kategori</label>
-                        <select type="text" class="form-control @error('category') @enderror" name="category" id="category" value="{{ old('category') }}" >
-                            <option value="">Choose Category</option>
+                        <select  class="form-control @error('category') @enderror" name="category" id="category"> 
+                            <option value="">Select</option>
                             @foreach($categories as $item)
                             <option value="{{ $item->id }}">{{$item->kategori}}</option>
                             @endforeach
@@ -50,8 +50,7 @@
                     </div>
                     <div class="mb-3 form-group">
                         <label for="tags">Tag</label>
-                        <select multiple="multiple"  class="form-control @error('tags') @enderror" name="tags[]" id="tags" value="{{ old('tags') }}" >
-                            <option value="">Choose Tags</option>
+                        <select multiple  class="form-control @error('tags') @enderror" name="tags[]" id="tags" >  
                             @foreach($tags as $item)
                             <option value="{{$item->id}}">{{$item->tag}}</option>
                             @endforeach
@@ -89,7 +88,7 @@
 
         $('#tags').select2({
             placeholder:"Select",
-            allowClear:true
+            allowClear:true,
         })
     })
 </script>

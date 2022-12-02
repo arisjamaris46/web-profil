@@ -92,14 +92,12 @@ class BlogController extends Controller
 
     public function edit($id){
         $blog = Blog::find($id);
-        $arrTags = explode(",",$blog->tags);
-        // dd($arrTags);
         $data = [
             'title' => 'Edit Postingan',
             'blog' => $blog,
             'categories' => Category::all(),
             'tags' => Tag::all(),
-            'arrTags'=>$arrTags
+        
         ];
 
        
@@ -107,8 +105,32 @@ class BlogController extends Controller
         return view('backend/pages/blog/edit',$data);
     }
 
-    public function update(){
-        return "update hello world";
+    public function update(Request $request, $id){
+
+        $validated = $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+            'category' => 'required',
+        ]);
+
+        $blog = Blog::find($id);
+        if(!empty($request->file('img_file'))){
+            $path_img = $request->file('img_file')->store('blogs');
+            $blog->file_gbr = $path_img;
+            
+        }else{
+            $blog->file_gbr = $request->file_gbr;
+           
+        }
+        $blog->judul = $validated['title'];
+        $blog->slug = Str::of($validated['title'])->slug('-');
+        $blog->ket = $validated['content'];
+        $blog->id_kategori = $validated['category'];
+        $blog->id_user = Auth::user()->id;
+        $blog->updated_at = DATE('Y-m-d h:i:s');
+        $blog->save();
+
+        return back()->with('success','Data blog berhasil diedit');
     }
 
     public function destroy($id){

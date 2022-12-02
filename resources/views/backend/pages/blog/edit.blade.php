@@ -17,7 +17,7 @@
 
 		<div class="card">
 			<div class="card-body">
-				<form method="POST" enctype="multipart/form-data">
+				<form action="{{ route('update.blog',$blog->id) }}" method="POST" enctype="multipart/form-data">
 					@csrf
 					<div class="mb-3 form-group">
 						<label for="title">Judul</label>
@@ -28,7 +28,7 @@
 					</div>
 					<div class="mb-3 form-group">
 						<label for="content">Konten</label>
-						<textarea name="content" id="content" rows="5" class="form-control @error('content') @enderror">{{ old('content',$blog->ket)}}</textarea>
+						<textarea name="content" id="content" rows="10" class="form-control @error('content') @enderror">{{ old('content',$blog->ket)}}</textarea>
 						@error('content')
 						<span class="text-danger">{{$message}}</span>
 						@enderror
@@ -36,30 +36,19 @@
 					<div class="mb-3 form-group">
 						<label for="category">Kategori</label>
 						<select name="category" id="category" class="form-control @error('category') @enderror">
-							<option value="">Choose Category</option>
+							<option value="">Select</option>
 							@foreach($categories as $item)
 								<option value="{{$item->id}}" @if($item->id == $blog->id_kategori) selected @endif>{{$item->kategori}}</option>
 							@endforeach
 						</select>
-							@error('category')
-							<span class="text-danger">{{$message}}</span>
-							@enderror
-					</div>
-					<div class="mb-3 form-group">
-						<label for="tags">Tags</label>
-						<select multiple="multiple" name="tags[]" id="tags" class="form-control">
-							<option value="">Choose Tags</option>
-							@foreach($tags as $item)
-							<option value="{{$item->tag}}">{{ $item->tag }}</option>
-							@endforeach
-						</select>
-						@error('tags')
-						<span class="text-dannger">{{$message}}</span>
+						@error('category')
+						<span class="text-danger">{{$message}}</span>
 						@enderror
 					</div>
 					<div class="mb-3 form-group">
 						<label for="img_file">Upload Gambar</label>
-						<input type="file" class="form-control @error('img_file') @enderror" value="" >
+						<input type="file" class="form-control @error('img_file') @enderror" name="img_file" id="img_file" >
+						<input type="hidden" name="file_gbr" id="file_gbr" value="{{ $blog->file_gbr }}">
 						@error('img_file')
 						<span class="text-danger">{{$message}}</span>
 						@enderror
@@ -80,10 +69,7 @@
             placeholder:"Select",
             allowClear:true
         });
-        $('#tags').select2({
-            placeholder:"Select",
-            allowClear:true
-        });
+
     })
 </script>
 
