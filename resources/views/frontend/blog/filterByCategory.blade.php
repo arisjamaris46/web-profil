@@ -12,7 +12,8 @@
           <div class="span8">
             <ul class="breadcrumb">
               <li><a href="{{ route('home') }}"><i class="icon-home"></i></a><i class="icon-angle-right"></i></li>
-              <li class="active">Blog</li>
+              <li><a href="{{ route('blog') }}">Blog</a><i class="icon-angle-right"></i></li>
+              <li class="active">Categories</li>
             </ul>
           </div>
         </div>
@@ -43,7 +44,7 @@
                   @foreach($latest_posts as $item)
                   <li>
                     <img src="{{ asset('storage/'.$item->file_gbr)}}" class="pull-left" alt="image posts" />
-                    <h6><a href="{{ route('blog.detail',$item->slug) }}">{{$item->judul}}</a></h6>
+                    <h6><a href="{{ route('blog.detail',$item->slug)}}">{{$item->judul}}</a></h6>
                     <p>
                       {{ substr($item->ket,0,120)}}
                     </p>

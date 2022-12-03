@@ -9,6 +9,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\TagController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +53,20 @@ Route::get('blogs/tambah',[BlogController::class,'create'])->name('posting')->mi
 Route::post('blogs/tambah',[BlogController::class,'store'])->name('posting')->middleware('auth');
 Route::get('blogs/edit/{id}',[BlogController::class,'edit'])->name('edit.blog')->middleware('auth');
 Route::post('blogs/edit/{id}',[BlogController::class,'update'])->name('update.blog')->middleware('auth');
-Route::get('blogs/hapus/{id}',[BlogController::class,'delete'])->name('hapus.blog')->middleware('auth');
+Route::get('blogs/hapus/{id}',[BlogController::class,'destroy'])->name('hapus.blog')->middleware('auth');
+Route::get('kategori',[CategoryController::class,'index'])->name('kategori')->middleware('auth');
+Route::get('kategori/tambah',[CategoryController::class,'create'])->name('tambah.kategori')->middleware('auth');
+Route::post('kategori/tambah',[CategoryController::class,'store'])->name('tambah.kategori')->middleware('auth');
+Route::get('kategori/edit/{id}',[CategoryController::class,'edit'])->name('edit.kategori')->middleware('auth');
+Route::post('kategori/edit/{id}',[CategoryController::class,'update'])->name('update.kategori')->middleware('auth');
+Route::get('kategori/hapus/{id}',[CategoryController::class,'destroy'])->name('hapus.kategori')->middleware('auth');
+Route::get('tag',[TagController::class,'index'])->name('tag')->middleware('auth');
+Route::get('tag/tambah',[TagController::class,'create'])->name('tambah.tag')->middleware('auth');
+Route::post('tag/tambah',[TagController::class,'store'])->name('tambah.tag')->middleware('auth');
+Route::get('tag/edit/{id}',[TagController::class,'edit'])->name('edit.tag')->middleware('auth');
+Route::post('tag/edit/{id}',[TagController::class,'update'])->name('update.tag')->middleware('auth');
+Route::get('tag/hapus/{id}',[TagController::class,'destroy'])->name('hapus.tag')->middleware('auth');
+Route::get('blog/{slug}',[BlogController::class,'detail'])->name('blog.detail');
+Route::get('blog/filter/kategori/{kategori}',[BlogController::class,'filterByCategory'])->name('blog.filter.kategori');
 
 

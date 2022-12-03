@@ -12,7 +12,8 @@
           <div class="span8">
             <ul class="breadcrumb">
               <li><a href="{{ route('home') }}"><i class="icon-home"></i></a><i class="icon-angle-right"></i></li>
-              <li class="active">Blog</li>
+              <li><a href="{{ route('blog') }}">Blog</a><i class="icon-angle-right"></i></li>
+              <li class="active">Detail</li>
             </ul>
           </div>
         </div>
@@ -62,31 +63,29 @@
             </aside>
           </div>
           <div class="span8">
-            @foreach($blogs as $item)
             <article>
               <div class="row">
                 <div class="span8">
                   <div class="post-image">
                     <div class="post-heading">
-                      <h3><a href="{{route('blog.detail',$item->slug)}}">{{ $item->judul }}</a></h3>
+                      <h3>{{ $blog->judul }}</h3>
                     </div>
-                    <img src="{{ asset('storage/'.$item->file_gbr)}}" alt="image" />
+                    <img src="{{ asset('storage/'.$blog->file_gbr)}}" alt="image" />
                   </div>
                   <p>
-                    {{ substr($item->ket,0,200) }}
+                    {{ $blog->ket }}
                   </p>
                   <div class="bottom-article">
                     <ul class="meta-post">
-                      <li><i class="icon-calendar"></i>{{ date_format($item->created_at,'d-m-Y') }}</li>
-                      <li><i class="icon-user"></i>{{ $item->user->username }}</li>
+                      <li><i class="icon-calendar"></i>{{ date_format($blog->created_at,'d-m-Y') }}</li>
+                      <li><i class="icon-user"></i>{{ $blog->user->username }}</li>
                       <li><i class="icon-comments"></i><a href="#">4 Comments</a></li>
                     </ul>
-                    <a href="{{ route('blog.detail',$item->slug) }}" class="pull-right">Continue reading <i class="icon-angle-right"></i></a>
+                    
                   </div>
                 </div>
               </div>
             </article>
-            @endforeach
             <div id="pagination">
               <span class="all">Page 1 of 3</span>
               <span class="current">1</span>

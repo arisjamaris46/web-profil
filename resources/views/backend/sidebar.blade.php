@@ -61,13 +61,31 @@
             </li>
 
             <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <div class="sidebar-heading">
+                Data Master
+            </div>
+            
+            <li class="nav-item">
+                <a href="{{route('kategori')}}" class="nav-link">
+                    <i class="fas fa-list"></i>
+                    <span>Kategori</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a href="{{route('tag')}}" class="nav-link">
+                    <i class="fas fa-list"></i>
+                    <span>Tag</span></a>
+            </li>
+
+            <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
-
 
 
         </ul>

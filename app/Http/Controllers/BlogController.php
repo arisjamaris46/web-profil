@@ -16,8 +16,11 @@ class BlogController extends Controller
     public function index(){
 
         $categories = DB::table('categories')
-                    ->select('kategori',DB::raw('COUNT(kategori) as jml_kategori'))
-                    ->groupBy('kategori')
+                    ->select('categories.kategori',DB::raw('COUNT(blog.id_kategori) as jml_kategori'))
+                    ->join('blog',function($join){
+                        $join->on('blog.id_kategori','=','categories.id');
+                    })
+                    ->groupBy('categories.kategori')
                     ->get();
         $latest_posts = Blog::take(4)->orderByDesc('id')->get();
         $data = [
@@ -134,6 +137,61 @@ class BlogController extends Controller
     }
 
     public function destroy($id){
-        return "hapus hello world";
+        $blog = Blog::find($id);
+        $deleted = $blog->delete();
+
+        if($deleted){
+            
+            return redirect()->route('blogs')->with('success','Data blog berhasil dihapus');
+        }else{
+            return redirect()->route('blogs')->with('error','Data blog gagal dihapus');
+        }
+    }
+
+    public function detail($slug){
+        $blog = Blog::where('slug',$slug)->first();
+        $categories = DB::table('categories')
+                    ->select('categories.kategori',DB::raw('COUNT(blog.id_kategori) as jml_kategori'))
+                    ->join('blog',function($join){
+                        $join->on('blog.id_kategori','=','categories.id');
+                    })
+                    ->groupBy('categories.kategori')
+                    ->get();
+        $latest_posts = Blog::take(4)->orderByDesc('id')->get();
+        $data = [
+            'title' => $blog->judul,
+            'blog' => $blog,
+            'categories'=>$categories,
+            'latest_posts'=>$latest_posts,
+            'tags'=>Tag::all()
+        ];
+
+        return view('frontend.blog.detail',$data);
+    }
+
+    public function filterByCategory($kategori){
+        $row = Category::where('kategori',$kategori)->first();
+        $blogs = Blog::take(6)->where('id_kategori',$row->id)->get();
+        $categories = DB::table('categories')
+                    ->select('categories.kategori',DB::raw('COUNT(blog.id_kategori) as jml_kategori'))
+                    ->join('blog',function($join){
+                        $join->on('blog.id_kategori','=','categories.id');
+                    })
+                    ->groupBy('categories.kategori')
+                    ->get();
+        $latest_posts = Blog::take(4)->orderByDesc('id')->get();
+        $data = [
+            'title'=>'Blog | Kategori',
+            'blogs' => $blogs,
+            'categories'=>$categories,
+            'latest_posts'=>$latest_posts,
+            'tags'=>Tag::all()
+        ];
+
+        return view('frontend.blog.filterByCategory',$data);
+    }
+
+    public function filterByTag($tag){
+        return 'Ini halaman blog berdasarkan kata kunci tags';
     }
 }

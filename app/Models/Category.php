@@ -11,6 +11,8 @@ class Category extends Model
     protected $table = 'categories';
     public $timestamps = false;
 
+    protected $fillable = ['kategori'];
+
     public function blog(){
         return $this->hasMany(Blog::class,'id_kategori');
     }

@@ -12,7 +12,8 @@
           <div class="span8">
             <ul class="breadcrumb">
               <li><a href="{{ route('home') }}"><i class="icon-home"></i></a><i class="icon-angle-right"></i></li>
-              <li class="active">Blog</li>
+              <li><a href="{{ route('blog') }}">Blog</a><i class="icon-angle-right"></i></li>
+              <li class="active">Tags</li>
             </ul>
           </div>
         </div>
