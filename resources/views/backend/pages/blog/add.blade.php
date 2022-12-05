@@ -77,7 +77,7 @@
     </div>
 </div>
 
-<script>
+<script type="text/javascript">
 
     $(document).ready(function(){
         <!-- select 2 multiple -->
@@ -89,7 +89,26 @@
         $('#tags').select2({
             placeholder:"Select",
             allowClear:true,
-        })
+        });
+
+        // setting plugin wysiwyg
+        tinymce.init({
+            selector:'textarea#content',
+            menubar:'file edit view insert',
+            height:300,
+            menu:{
+                insert:{
+                    title:'Insert',items:'image link media addcomment pageembed template codesample|hr pagebreak nonbreaking anchor'
+                }
+            },
+            plugins: [
+            'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview', 'anchor', 'pagebreak',
+            'searchreplace', 'wordcount', 'visualblocks', 'visualchars', 'code', 'fullscreen', 'insertdatetime',
+            'media', 'table', 'emoticons', 'template', 'help'
+            ],
+            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
+        });
+
     })
 </script>
 @endsection

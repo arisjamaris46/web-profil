@@ -24,6 +24,7 @@
   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{asset('ico/apple-touch-icon-72-precomposed.png')}}" />
   <link rel="apple-touch-icon-precomposed" href="{{ asset('ico/apple-touch-icon-57-precomposed.png')}}" />
   <link rel="shortcut icon" href="{{asset('ico/favicon.jpg')}}" />
+  <script src="{{asset('tinymce/tinymce.min.js')}}" referrerpolicy="origin"></script>
 
   <!-- =======================================================
     Theme Name: Flattern
