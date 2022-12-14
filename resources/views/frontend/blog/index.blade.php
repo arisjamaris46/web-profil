@@ -72,9 +72,9 @@
                     </div>
                     <img src="{{ asset('storage/'.$item->file_gbr)}}" alt="image" />
                   </div>
-                  <p>
-                    {{ substr($item->ket,0,200) }}
-                  </p>
+            
+                     <?php echo substr($item->ket,0,200) ?>
+          
                   <div class="bottom-article">
                     <ul class="meta-post">
                       <li><i class="icon-calendar"></i>{{ date_format($item->created_at,'d-m-Y') }}</li>
