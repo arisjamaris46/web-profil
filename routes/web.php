@@ -11,6 +11,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,5 +69,8 @@ Route::post('tag/edit/{id}',[TagController::class,'update'])->name('update.tag')
 Route::get('tag/hapus/{id}',[TagController::class,'destroy'])->name('hapus.tag')->middleware('auth');
 Route::get('blog/{slug}',[BlogController::class,'detail'])->name('blog.detail');
 Route::get('blog/filter/kategori/{kategori}',[BlogController::class,'filterByCategory'])->name('blog.filter.kategori');
+Route::get('pengaturan/profil/{id}',[UserController::class,'setting_profile'])->name('ubah.profil')->middleware('auth');
+Route::post('pengaturan/profil/{id}',[UserController::class,'store_profile'])->name('ubah.profil')->middleware('auth');
+Route::get('pengaturan/password/{id}',[UserController::class,'setting_password'])->name('ubah.password')->middleware('auth');
 
 

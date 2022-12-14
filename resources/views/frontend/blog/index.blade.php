@@ -44,9 +44,7 @@
                   <li>
                     <img src="{{ asset('storage/'.$item->file_gbr)}}" class="pull-left" alt="image posts" />
                     <h6><a href="{{ route('blog.detail',$item->slug) }}">{{$item->judul}}</a></h6>
-                    <p>
-                      {{ substr($item->ket,0,120)}}
-                    </p>
+                    <?php echo substr($item->ket,0,120) ?>
                   </li>
                   @endforeach
                 </ul>
