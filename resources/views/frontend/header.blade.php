@@ -16,15 +16,14 @@
   <link href="{{asset('css/jcarousel.css')}}" rel="stylesheet" />
   <link href="{{ asset('css/flexslider.css')}}" rel="stylesheet" />
   <link href="{{asset('css/style.css')}}" rel="stylesheet" />
-  <!-- Theme skin -->
-  <link href="{{asset('skins/default.css')}}" rel="stylesheet" />
+ 
   <!-- Fav and touch icons -->
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{asset('ico/apple-touch-icon-144-precomposed.png')}}" />
   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{asset('ico/apple-touch-icon-114-precomposed.png')}}" />
   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{asset('ico/apple-touch-icon-72-precomposed.png')}}" />
   <link rel="apple-touch-icon-precomposed" href="{{ asset('ico/apple-touch-icon-57-precomposed.png')}}" />
   <link rel="shortcut icon" href="{{asset('ico/favicon.jpg')}}" />
-  <script src="{{asset('tinymce/tinymce.min.js')}}" referrerpolicy="origin"></script>
+
 
   <!-- =======================================================
     Theme Name: Flattern

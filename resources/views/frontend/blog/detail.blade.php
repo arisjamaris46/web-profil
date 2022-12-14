@@ -73,7 +73,7 @@
                     <img src="{{ asset('storage/'.$blog->file_gbr)}}" alt="image" />
                   </div>
                   <div id="content-blog">
-                    {{ $blog->ket }}
+                    <?php echo $blog->ket ?> 
                   </div>
                   <div class="bottom-article">
                     <ul class="meta-post">
@@ -96,43 +96,5 @@
         </div>
       </div>
 </section>
-<script>
-  tinymce.init({
-    selector:'div#content-blog',
-    plugins: [
-    'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
-    'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
-    'insertdatetime', 'media', 'table', 'help', 'wordcount'
-  ],
-  menubar:false,
-  toolbar:false,
-  height: '700px',
-            toolbar_sticky: true,
-            icons: 'thin',
-            autosave_restore_when_empty: true,
-            content_style: `
-                body {
-                    background: #fff;
-                }
 
-                @media (min-width: 840px) {
-                    html {
-                        background: #eceef4;
-                        min-height: 100%;
-                        padding: 0 .5rem
-                    }
-
-                    body {
-                        background-color: #fff;
-                        box-shadow: 0 0 4px rgba(0, 0, 0, .15);
-                        box-sizing: border-box;
-                        margin: 1rem auto 0;
-                        max-width: 820px;
-                        min-height: calc(100vh - 1rem);
-                        padding:4rem 6rem 6rem 6rem
-                    }
-                }
-            `,
-  })
-</script>
 @endsection
