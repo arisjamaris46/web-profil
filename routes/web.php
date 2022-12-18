@@ -72,5 +72,6 @@ Route::get('blog/filter/kategori/{kategori}',[BlogController::class,'filterByCat
 Route::get('pengaturan/profil/{id}',[UserController::class,'setting_profile'])->name('ubah.profil')->middleware('auth');
 Route::post('pengaturan/profil/{id}',[UserController::class,'store_profile'])->name('ubah.profil')->middleware('auth');
 Route::get('pengaturan/password/{id}',[UserController::class,'setting_password'])->name('ubah.password')->middleware('auth');
+Route::post('pengaturan/password/{id}',[UserController::class,'change_password'])->name('ubah.password')->middleware('auth');
 
 

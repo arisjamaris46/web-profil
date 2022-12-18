@@ -29,20 +29,20 @@
                     <div class="mb-3 form-group">
                         <label for="old_pass">Password Lama</label>
                         <input type="text" class="form-control @error('old_pass') @enderror" name="old_pass" id="old_pass" value="{{ old('old_pass') }}" autocomplete="off">
-                        @error('username')
+                        @error('old_pass')
                         <span class="text-danger">{{$message}}</span>
                         @enderror
                     </div>
                     <div class="mb-3 form-group">
-                        <label for="password">Password Baru</label>
-                        <input type="text" class="form-control @error('password') @enderror" name="password" id="password" value="{{ old('password') }}" autocomplete="off">
-                        @error('password')
+                        <label for="new_pass">Password Baru</label>
+                        <input type="text" class="form-control @error('new_pass') @enderror" name="new_pass" id="new_pass" value="{{ old('new_pass') }}" autocomplete="off">
+                        @error('new_pass')
                         <span class="text-danger">{{$message}}</span>
                         @enderror
                     </div>
                     <div class="mb-3 form-group">
                         <label for="pass_conf">Ulangi password</label>
-                        <input type="text" name="pass_conf" id="pass_conf" class="form-control @error('pass_conf') @enderror">
+                        <input type="text" name="pass_conf" id="pass_conf" class="form-control @error('pass_conf') @enderror" value="{{ old('pass_conf') }}">
                         @error('pass_conf')
                             <span class="text-danger">{{$message}}</span>
                         @enderror
