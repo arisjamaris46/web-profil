@@ -75,6 +75,11 @@ class UserController extends Controller
     }
 
     public function setting_password($id){
+        $data = [
+            'title' => 'Pengaturan Password',
+            'user' => User::find($id)
+        ];
 
+        return view('backend.pages.setting.change-password',$data);
     }
 }
