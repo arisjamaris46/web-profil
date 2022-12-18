@@ -43,7 +43,7 @@
                     <div class="mb-3 form-group">
                         <label for="img_file">Upload Gambar</label>
                         <input type="file" name="img_file" id="img_file" class="form-control @error('img_file') @enderror">
-                        <input type="hidden" name="old_img" id="old_img" value="{{$profile->gbr_profil}}">
+                        <input type="hidden" name="old_img" id="old_img" value="<?php !empty($profile->gbr_profil) ? $profile->gbr_profil : ''?>">
                         @error('img_file')
                             <span class="text-danger">{{$message}}</span>
                         @enderror
