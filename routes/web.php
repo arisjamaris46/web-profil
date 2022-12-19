@@ -69,6 +69,7 @@ Route::post('tag/edit/{id}',[TagController::class,'update'])->name('update.tag')
 Route::get('tag/hapus/{id}',[TagController::class,'destroy'])->name('hapus.tag')->middleware('auth');
 Route::get('blog/{slug}',[BlogController::class,'detail'])->name('blog.detail');
 Route::get('blog/filter/kategori/{kategori}',[BlogController::class,'filterByCategory'])->name('blog.filter.kategori');
+Route::get('blog/filter/tags/{id}',[BlogController::class,'filterByTag'])->name('blog.filter.tag');
 Route::get('pengaturan/profil/{id}',[UserController::class,'setting_profile'])->name('ubah.profil')->middleware('auth');
 Route::post('pengaturan/profil/{id}',[UserController::class,'store_profile'])->name('ubah.profil')->middleware('auth');
 Route::get('pengaturan/password/{id}',[UserController::class,'setting_password'])->name('ubah.password')->middleware('auth');
