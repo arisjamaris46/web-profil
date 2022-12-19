@@ -45,9 +45,7 @@
                   <li>
                     <img src="{{ asset('storage/'.$item->file_gbr)}}" class="pull-left" alt="image posts" />
                     <h6><a href="{{ route('blog.detail',$item->slug) }}">{{$item->judul}}</a></h6>
-                    <p>
-                      {{ substr($item->ket,0,120)}}
-                    </p>
+                    <?php echo substr($item->ket,0,120) ?>
                   </li>
                   @endforeach
                 </ul>
@@ -56,33 +54,33 @@
                 <h5 class="widgetheading">Popular tags</h5>
                 <ul class="tags">
                   @foreach($tags as $item)
-                  <li><a href="#">{{$item->tag}}</a></li>
+                  <li><a href="{{ route('blog.filter.tag',$item->id) }}">{{$item->tag}}</a></li>
                   @endforeach
                 </ul>
               </div>
             </aside>
           </div>
           <div class="span8">
-            @foreach($blogs as $item)
+            @foreach($blogs as $row)
             <article>
               <div class="row">
                 <div class="span8">
                   <div class="post-image">
                     <div class="post-heading">
-                      <h3><a href="{{route('blog.detail',$item->slug)}}">{{ $item->judul }}</a></h3>
+                      <h3><a href="{{route('blog.detail',$row->slug)}}">{{ $row->judul }}</a></h3>
                     </div>
-                    <img src="{{ asset('storage/'.$item->file_gbr)}}" alt="image" />
+                    <img src="{{ asset('storage/'.$row->file_gbr)}}" alt="image" />
                   </div>
                   <p>
-                    {{ substr($item->ket,0,200) }}
+                    <?php echo substr($row->ket,0,200) ?>
                   </p>
                   <div class="bottom-article">
                     <ul class="meta-post">
-                      <li><i class="icon-calendar"></i>{{ date_format($item->created_at,'d-m-Y') }}</li>
-                      <li><i class="icon-user"></i>{{ $item->user->username }}</li>
+                      <li><i class="icon-calendar"></i>{{ $row->created_at }}</li>
+                      <li><i class="icon-user"></i>{{ $row->username }}</li>
                       <li><i class="icon-comments"></i><a href="#">4 Comments</a></li>
                     </ul>
-                    <a href="{{ route('blog.detail',$item->slug) }}" class="pull-right">Continue reading <i class="icon-angle-right"></i></a>
+                    <a href="{{ route('blog.detail',$row->slug) }}" class="pull-right">Continue reading <i class="icon-angle-right"></i></a>
                   </div>
                 </div>
               </div>

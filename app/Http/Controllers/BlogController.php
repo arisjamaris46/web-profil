@@ -191,7 +191,33 @@ class BlogController extends Controller
         return view('frontend.blog.filterByCategory',$data);
     }
 
-    public function filterByTag($tag){
-        return 'Ini halaman blog berdasarkan kata kunci tags';
+    public function filterByTag($id){
+       
+        $dataBlog = DB::table('blog')
+                    ->join('blog_tags','blog_tags.id_blog','=','blog.id')
+                    ->join('categories','categories.id','=','blog.id_kategori')
+                    ->join('tags','tags.id','=','blog_tags.id_tag')
+                    ->join('users','users.id','=','blog.id_user')
+                    ->where('tags.id',$id)
+                    ->select('blog.*','categories.kategori','tags.tag as nm_tag','users.username','users.email')
+                    ->get();
+        $categories = DB::table('categories')
+        ->select('categories.kategori',DB::raw('COUNT(blog.id_kategori) as jml_kategori'))
+        ->join('blog',function($join){
+            $join->on('blog.id_kategori','=','categories.id');
+        })
+        ->groupBy('categories.kategori')
+        ->get();
+        $latest_posts = Blog::take(4)->orderByDesc('id')->get();
+        // dd($dataBlog);
+        $data = [
+            'title' => 'Blog | Tag',
+            'blogs' => $dataBlog,
+            'categories'=>$categories,
+            'latest_posts'=>$latest_posts,
+            'tags'=>Tag::all()
+        ];
+
+        return view('frontend.blog/filterByTag',$data);
     }
 }
