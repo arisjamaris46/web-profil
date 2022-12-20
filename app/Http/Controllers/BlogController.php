@@ -13,8 +13,8 @@ use App\Models\BlogTags;
 
 class BlogController extends Controller
 {
-    public function index(){
-
+    public function index(Request $request){
+        $keyword = !empty($request->input('keyword')) ? $request->input('keyword') : '';
         $categories = DB::table('categories')
                     ->select('categories.kategori',DB::raw('COUNT(blog.id_kategori) as jml_kategori'))
                     ->join('blog',function($join){
@@ -23,9 +23,20 @@ class BlogController extends Controller
                     ->groupBy('categories.kategori')
                     ->get();
         $latest_posts = Blog::take(4)->orderByDesc('id')->get();
+        $blogs = Blog::leftJoin('blog_tags','blog_tags.id_blog','=','blog.id')
+                ->leftJoin('categories','categories.id','=','blog.id_kategori')
+                ->leftJoin('tags','tags.id','=','blog_tags.id_tag')
+                ->leftJoin('users','users.id','=','blog.id_user')
+                ->where('blog.judul','like','%'.$keyword.'%')
+                ->orWhere('categories.kategori','like','%'.$keyword.'%')
+                ->orWhere('tags.tag','like','%'.$keyword.'%')
+                ->groupBy('blog.id')
+                ->select('blog.id','blog.judul','blog.slug','blog.ket','blog.file_gbr','blog.created_at','categories.kategori','users.username','users.email')
+                ->paginate(2);
+        
         $data = [
             'title' => 'Blog',
-            'blogs'=> Blog::take(6)->get(),
+            'blogs'=> $blogs,
             'latest_posts'=>$latest_posts,
             'categories' => $categories,
             'tags'=>Tag::all()
@@ -171,7 +182,7 @@ class BlogController extends Controller
 
     public function filterByCategory($kategori){
         $row = Category::where('kategori',$kategori)->first();
-        $blogs = Blog::take(6)->where('id_kategori',$row->id)->get();
+        $blogs = Blog::take(6)->where('id_kategori',$row->id)->paginate(2);
         $categories = DB::table('categories')
                     ->select('categories.kategori',DB::raw('COUNT(blog.id_kategori) as jml_kategori'))
                     ->join('blog',function($join){
@@ -200,7 +211,7 @@ class BlogController extends Controller
                     ->join('users','users.id','=','blog.id_user')
                     ->where('tags.id',$id)
                     ->select('blog.*','categories.kategori','tags.tag as nm_tag','users.username','users.email')
-                    ->get();
+                    ->paginate(2);
         $categories = DB::table('categories')
         ->select('categories.kategori',DB::raw('COUNT(blog.id_kategori) as jml_kategori'))
         ->join('blog',function($join){
