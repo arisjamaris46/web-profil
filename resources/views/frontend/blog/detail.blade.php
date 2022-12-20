@@ -26,7 +26,7 @@
             <aside class="left-sidebar">
               <div class="widget">
                 <form class="form-search">
-                  <input placeholder="Type something" type="text" class="input-medium search-query">
+                  <input placeholder="Type something" type="text" class="input-medium search-query" action="{{ route('blog') }}" method="GET">
                   <button type="submit" class="btn btn-square btn-default">Search</button>
                 </form>
               </div>
@@ -79,19 +79,14 @@
                     <ul class="meta-post">
                       <li><i class="icon-calendar"></i>{{ date_format($blog->created_at,'d-m-Y') }}</li>
                       <li><i class="icon-user"></i>{{ $blog->user->username }}</li>
-                      <li><i class="icon-comments"></i><a href="#">4 Comments</a></li>
+                      <!--<li><i class="icon-comments"></i><a href="#">4 Comments</a></li>-->
                     </ul>
                     
                   </div>
                 </div>
               </div>
             </article>
-            <div id="pagination">
-              <span class="all">Page 1 of 3</span>
-              <span class="current">1</span>
-              <a href="#" class="inactive">2</a>
-              <a href="#" class="inactive">3</a>
-            </div>
+          
           </div>
         </div>
       </div>

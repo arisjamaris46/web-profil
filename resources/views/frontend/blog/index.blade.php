@@ -24,8 +24,8 @@
           <div class="span4">
             <aside class="left-sidebar">
               <div class="widget">
-                <form class="form-search">
-                  <input placeholder="Type something" type="text" class="input-medium search-query">
+                <form class="form-search" method="GET" action="{{ route('blog') }}">
+                  <input placeholder="Type something" type="text" name="keyword" id="keyword" class="input-medium search-query">
                   <button type="submit" class="btn btn-square btn-default">Search</button>
                 </form>
               </div>
@@ -75,9 +75,9 @@
           
                   <div class="bottom-article">
                     <ul class="meta-post">
-                      <li><i class="icon-calendar"></i>{{ date_format($item->created_at,'d-m-Y') }}</li>
-                      <li><i class="icon-user"></i>{{ $item->user->username }}</li>
-                      <li><i class="icon-comments"></i><a href="#">4 Comments</a></li>
+                      <li><i class="icon-calendar"></i>{{ date_format($item->created_at,'d-M-Y') }}</li>
+                      <li><i class="icon-user"></i>{{ $item->username }}</li>
+                      <!--<li><i class="icon-comments"></i><a href="#">4 Comments</a></li>-->
                     </ul>
                     <a href="{{ route('blog.detail',$item->slug) }}" class="pull-right">Continue reading <i class="icon-angle-right"></i></a>
                   </div>
@@ -86,10 +86,7 @@
             </article>
             @endforeach
             <div id="pagination">
-              <span class="all">Page 1 of 3</span>
-              <span class="current">1</span>
-              <a href="#" class="inactive">2</a>
-              <a href="#" class="inactive">3</a>
+              {{ $blogs->links() }}
             </div>
           </div>
         </div>
