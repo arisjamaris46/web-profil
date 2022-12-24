@@ -28,5 +28,8 @@
     <script type="text/javascript" src="{{asset('js/vfs_fonts.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/datatables.min.js')}}"></script>
     <script src="{{asset('tinymce/tinymce.min.js')}}" referrerpolicy="origin"></script>
+    <!-- Page level plugins -->
+    <script src="{{asset('vendor/chart.js/Chart.min.js')}}"></script>
+
 
 </head>

@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Blog;
+use App\Models\Products;
+use App\Models\Clients;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -14,9 +18,32 @@ class AdminController extends Controller
     public function index()
     {
         //
+        $blogs = DB::table('blog')
+        ->join("categories","categories.id","=","blog.id_kategori")
+        ->select(DB::raw("COUNT(blog.id_kategori) as count"),"categories.kategori")
+        ->groupBy('blog.id_kategori')
+        ->get();
+       
+        $amount_product = Products::all()->count();
+        $amount_client = Clients::all()->count();
+        $amount_blog = Blog::all()->count();
+
+        $labels = array();
+        $counts = array();
+        foreach($blogs as $blog){
+            array_push($counts,$blog->count);
+            array_push($labels,$blog->kategori);
+        }
+        // dd($labels);
         $data = [
-            'title'=>'Dashboard'
+            'title'=>'Dashboard',
+            'amount_product'=>$amount_product,
+            'amount_client' =>$amount_client,
+            'amount_blog'=>$amount_blog,
+            'counts' => $counts,
+            'labels'=> $labels
         ];
+
         return view('backend.pages.main',$data);
     }
 
